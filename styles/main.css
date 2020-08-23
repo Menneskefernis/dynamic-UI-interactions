@@ -132,7 +132,7 @@ table {
 /* My code */
 * {
   -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -147,7 +147,7 @@ body {
   display: inline-block;
   border: 2px solid steelblue;
   -webkit-box-shadow: 0 0 3px black;
-          box-shadow: 0 0 3px black;
+  box-shadow: 0 0 3px black;
   border-radius: 4px;
 }
 
@@ -172,7 +172,7 @@ body {
 #nav-bar #main .main-item.open .sub-nav {
   visibility: visible;
   -webkit-transform: translate(0, -10px);
-          transform: translate(0, -10px);
+  transform: translate(0, -10px);
   opacity: 1;
 }
 
@@ -197,7 +197,7 @@ body {
   background: darkseagreen;
   padding: 0;
   -webkit-box-shadow: 0 0 3px white;
-          box-shadow: 0 0 3px white;
+  box-shadow: 0 0 3px white;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
