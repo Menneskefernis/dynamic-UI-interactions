@@ -1,0 +1,208 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* My code */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+}
+
+#nav-bar {
+  margin: 50px auto;
+}
+
+#nav-bar #main {
+  display: inline-block;
+  border: 2px solid steelblue;
+  -webkit-box-shadow: 0 0 3px black;
+          box-shadow: 0 0 3px black;
+  border-radius: 4px;
+}
+
+#nav-bar #main .main-item {
+  position: relative;
+  display: inline-block;
+  background: skyblue;
+  border-right: 1px solid steelblue;
+  width: 300px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+#nav-bar #main .main-item:last-child {
+  border-right: none;
+}
+
+#nav-bar #main .main-item:hover {
+  background: steelblue;
+}
+
+#nav-bar #main .main-item.open .sub-nav {
+  visibility: visible;
+  -webkit-transform: translate(0, -10px);
+          transform: translate(0, -10px);
+  opacity: 1;
+}
+
+#nav-bar #main .main-item.open .sub-nav li {
+  padding: 12px;
+}
+
+#nav-bar #main .main-item .sub-nav {
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav-bar #main .main-item .sub-nav li {
+  width: 300px;
+  border-radius: 0 0 4px 4px;
+  background: darkseagreen;
+  padding: 0;
+  -webkit-box-shadow: 0 0 3px white;
+          box-shadow: 0 0 3px white;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#nav-bar #main .main-item .sub-nav li:hover {
+  background: green;
+}
+/*# sourceMappingURL=main.css.map */
