@@ -153,6 +153,9 @@ table {
 
 @media only screen and (max-width: 600px) {
   #nav-bar #main {
+    display: none;
+  }
+  #nav-bar #main.open {
     display: block;
   }
 }
@@ -172,6 +175,8 @@ table {
 @media only screen and (max-width: 600px) {
   #nav-bar #main .main-item {
     display: block;
+    border-right: none;
+    padding: 15px 0;
   }
 }
 
@@ -190,30 +195,49 @@ table {
   opacity: 1;
 }
 
+@media only screen and (max-width: 600px) {
+  #nav-bar #main .main-item.open .sub-nav {
+    position: relative;
+  }
+}
+
 #nav-bar #main .main-item.open .sub-nav li {
   padding: 12px;
 }
 
 #nav-bar #main .main-item .sub-nav {
-  display: block;
   visibility: hidden;
   opacity: 0;
   position: absolute;
   left: 0;
   top: 60px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  #nav-bar #main .main-item .sub-nav {
+    top: 25px;
+  }
 }
 
 #nav-bar #main .main-item .sub-nav li {
-  width: 300px;
+  width: 250px;
   border-radius: 0 0 4px 4px;
   background: darkseagreen;
   padding: 0;
   -webkit-box-shadow: 0 0 3px white;
           box-shadow: 0 0 3px white;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: padding 0.3s ease-in-out;
+  transition: padding 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 600px) {
+  #nav-bar #main .main-item .sub-nav li {
+    width: 100%;
+  }
 }
 
 #nav-bar #main .main-item .sub-nav li:hover {
