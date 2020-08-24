@@ -129,23 +129,30 @@ table {
   box-sizing: border-box;
 }
 
-body {
-  text-align: center;
-}
-
 #nav-bar {
   margin: 50px auto;
+  max-width: 1000px;
+  text-align: center;
+
   #main {
-    display: inline-block;
+    @media only screen and (max-width: 600px) {
+      display: block;
+    }
+
+    display: flex;
     border: 2px solid steelblue;
     box-shadow: 0 0 3px black;
     border-radius: 4px;
     .main-item {
+      @media only screen and (max-width: 600px) {
+        display: block;
+      }
+
+      flex: 1;
       position: relative;
       display: inline-block;
       background: skyblue;
       border-right: 1px solid steelblue;
-      width: 300px;
       padding: 15px;
       cursor: pointer;
       &:last-child {
@@ -187,6 +194,32 @@ body {
           }
         }
       }
+    }
+  }
+}
+
+#burger-menu {
+  @media only screen and (max-width: 600px) {
+    display: block;
+  }
+
+  display: none;
+  background: steelblue;
+  text-align: right;
+  padding: 5px;
+  button {
+    position: relative;
+    right: 0;
+    width: 50px;
+    background: skyblue;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
+    hr {
+      border: 1px solid steelblue;
+      margin-bottom: 10px;
     }
   }
 }

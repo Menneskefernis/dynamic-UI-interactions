@@ -1,4 +1,5 @@
 const navItems = document.querySelectorAll(".main-item");
+const burgerMenuBtn = document.getElementById('burger-menu-btn');
 
 const toggleNav = (e) => {
   const classList = e.target.classList;
@@ -12,4 +13,9 @@ const closeAll = () => {
   });
 };
 
+const unfoldBurgerMenu = () => {
+  console.log('john')
+};
+
 navItems.forEach((item) => item.addEventListener("click", toggleNav));
+burgerMenuBtn.addEventListener('click', unfoldBurgerMenu);
