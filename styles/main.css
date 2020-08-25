@@ -153,10 +153,10 @@ table {
 
 @media only screen and (max-width: 600px) {
   #nav-bar #main {
-    display: none;
-  }
-  #nav-bar #main.open {
     display: block;
+  }
+  #nav-bar #main.collapse {
+    display: none;
   }
 }
 
@@ -226,7 +226,7 @@ table {
 #nav-bar #main .main-item .sub-nav li {
   width: 250px;
   border-radius: 0 0 4px 4px;
-  background: darkseagreen;
+  background: powderblue;
   padding: 0;
   -webkit-box-shadow: 0 0 3px white;
           box-shadow: 0 0 3px white;
@@ -241,7 +241,7 @@ table {
 }
 
 #nav-bar #main .main-item .sub-nav li:hover {
-  background: green;
+  background: paleturquoise;
 }
 
 #burger-menu {
