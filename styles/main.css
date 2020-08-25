@@ -135,6 +135,10 @@ table {
           box-sizing: border-box;
 }
 
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 #nav-bar {
   margin: 50px auto;
   max-width: 1000px;
@@ -154,9 +158,23 @@ table {
 @media only screen and (max-width: 600px) {
   #nav-bar #main {
     display: block;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  #nav-bar #main .main-item {
+    padding: 15px 0;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
   }
   #nav-bar #main.collapse {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    padding: 0;
+  }
+  #nav-bar #main.collapse .main-item {
+    padding: 0;
   }
 }
 
@@ -169,6 +187,7 @@ table {
   background: skyblue;
   border-right: 1px solid steelblue;
   padding: 15px;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -270,8 +289,27 @@ table {
           box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.3);
 }
 
-#burger-menu button hr {
-  border: 1px solid steelblue;
-  margin-bottom: 10px;
+#burger-menu button.animate div:first-of-type {
+  -webkit-transform: translate(0, 10px) rotate(45deg);
+          transform: translate(0, 10px) rotate(45deg);
+}
+
+#burger-menu button.animate div:nth-child(2) {
+  opacity: 0;
+}
+
+#burger-menu button.animate div:last-of-type {
+  -webkit-transform: translate(0, -10px) rotate(-45deg);
+          transform: translate(0, -10px) rotate(-45deg);
+}
+
+#burger-menu button div {
+  border-bottom: 2px solid steelblue;
+  margin: 8px 0;
+  opacity: 1;
+  -webkit-transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 }
 /*# sourceMappingURL=main.css.map */

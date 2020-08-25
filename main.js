@@ -16,6 +16,7 @@ const closeAll = () => {
 
 const unfoldBurgerMenu = () => {
   mainNav.classList.toggle('collapse');
+  burgerMenuBtn.classList.toggle('animate');
 };
 
 navItems.forEach((item) => item.addEventListener('click', toggleNav));
