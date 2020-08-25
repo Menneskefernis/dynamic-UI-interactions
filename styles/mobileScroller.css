@@ -138,15 +138,30 @@ table {
 nav {
   position: relative;
   margin-top: 40px;
+  height: 100px;
   display: block;
+  background: skyblue;
   -webkit-box-shadow: 0 0 3px black;
           box-shadow: 0 0 3px black;
 }
 
 nav ul {
-  display: block;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: none;
+}
+
+nav ul::-webkit-scrollbar {
+  display: none;
 }
 
 nav ul li {
@@ -154,5 +169,37 @@ nav ul li {
   font-size: 50px;
   margin: 20px;
   cursor: pointer;
+}
+
+nav ul li :last-child {
+  padding-right: 20px;
+}
+
+nav .caret {
+  position: absolute;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: rgba(0, 0, 0, 0.1);
+  width: 15px;
+  display: none;
+}
+
+nav .caret.visible {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .caret#caret-left {
+  left: 0;
+}
+
+nav .caret#caret-right {
+  right: 0;
 }
 /*# sourceMappingURL=mobileScroller.css.map */

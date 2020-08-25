@@ -1,25 +1,14 @@
 const linksList = document.getElementById('nav-items');
+const caretLeft = document.getElementById('caret-left');
+const caretRight = document.getElementById('caret-right');
 
-let isDown = false;
-let startX;
-let scrollLeft;
+console.log(linksList.scrollWidth - linksList.clientWidth);
 
-const handleMouseDown = (e) => {
-    isDown = true;
-    startX = e.pageX;
-    scrollLeft = linksList.getBoundingClientRect().left;
+const handleCarets = () => {
+    linksList.scrollLeft > 0 ? caretLeft.classList.add('visible') : caretLeft.classList.remove('visible');
+    (linksList.getBoundingClientRect().width - window.innerWidth - 1) > linksList.scrollLeft ? caretRight.classList.add('visible') : caretRight.classList.remove('visible');
+   
+   
 };
 
-const handleMove = (e) => {
-    if (!isDown) return;
-    if (linksList.getBoundingClientRect().right < (window.innerWidth - 150)) return;
-    
-    e.preventDefault();
-    const walk = e.pageX - startX;
-    linksList.style.left = `${scrollLeft + walk}px`;
-};
-
-linksList.addEventListener('mousedown', handleMouseDown);
-linksList.addEventListener('mouseleave', () => isDown = false);
-linksList.addEventListener('mouseup', () => isDown = false);
-linksList.addEventListener('mousemove', handleMove);
+linksList.addEventListener('scroll', handleCarets, {passive: true});

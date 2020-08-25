@@ -126,26 +126,63 @@ table {
 /* My code */
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 nav {
+  position: relative;
+  margin-top: 40px;
+  height: 100px;
+  display: block;
+  background: skyblue;
+  box-shadow: 0 0 3px black;
+  
+  ul {
     position: relative;
-    margin-top: 40px;
-    display: block;
-    box-shadow: 0 0 3px black;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
     
-    ul {
-        display: block;
-        position: relative;
-        white-space: nowrap;
-        
-        li {
-            display: inline-block;
-            font-size: 50px;
-            margin: 20px;
-            cursor: pointer;
+    li {
+        display: inline-block;
+        font-size: 50px;
+        margin: 20px;
+        cursor: pointer;
+
+        :last-child {
+          padding-right: 20px;
         }
     }
+  }
+
+  .caret {
+    position: absolute;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.1);
+    width: 15px;
+    display: none;
+
+    &.visible {
+      display: flex;
+    }
+    
+    &#caret-left {
+      left: 0;
+    }
+
+    &#caret-right {
+      right: 0;
+    }
+  }
 
 }
