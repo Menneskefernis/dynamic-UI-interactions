@@ -135,41 +135,24 @@ table {
           box-sizing: border-box;
 }
 
-body {
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-image: -webkit-gradient(linear, left top, right bottom, from(steelblue), to(skyblue));
-  background-image: linear-gradient(to right bottom, steelblue, skyblue);
-  height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+nav {
+  position: relative;
+  margin-top: 40px;
+  display: block;
+  -webkit-box-shadow: 0 0 3px black;
+          box-shadow: 0 0 3px black;
 }
 
-#links {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: 0 auto;
-  max-width: 1000px;
-  background: powderblue;
-  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+nav ul {
+  display: block;
+  position: relative;
+  white-space: nowrap;
 }
 
-#links li:hover a {
-  color: #f9f9f9;
-}
-
-#links li a {
-  color: steelblue;
-  text-decoration: none;
-  font-size: 30px;
-  padding: 30px 30px;
-  border-right: 1px solid steelblue;
+nav ul li {
   display: inline-block;
+  font-size: 50px;
+  margin: 20px;
+  cursor: pointer;
 }
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=mobileScroller.css.map */
