@@ -129,6 +129,23 @@ table {
   box-sizing: border-box;
 }
 
+.info {
+  display: block;
+  text-align: center;
+  margin-top: 40px;
+  font-weight: bold;
+
+  &#info-1 {
+    @media screen and (max-width: 700px) {
+      display: none;
+    }
+  }
+}
+
+
+
+
+
 nav {
   position: relative;
   margin-top: 40px;
@@ -154,7 +171,7 @@ nav {
     li {
         display: inline-block;
         font-size: 50px;
-        margin: 20px;
+        margin: 10px;
         cursor: pointer;
 
         :last-child {
