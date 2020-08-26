@@ -129,32 +129,24 @@ table {
   box-sizing: border-box;
 }
 
-body {
+#slider {
+  position: relative;
+  margin-top: 100px;
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background-image: linear-gradient(to right bottom, steelblue, skyblue);
-  height: 100vh;
-  display: flex;
-  align-items: center;
-}
 
-#links {
-  display: flex;
-  margin: 0 auto;
-  max-width: 1000px;
-  background: powderblue;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-  li {
-    &:hover a {
-      color: rgb(249, 249, 249);
+  #image-container {
+    max-width: 700px;
+    margin: 0 auto;
+    .image {
+      display: none;
+      
+      img {
+        max-width: 100%;
+      }
     }
-    a {
-      color: steelblue;
-      text-decoration: none;
-      font-size: 30px;
-      padding: 30px 30px;
-      border-right: 1px solid steelblue;
-      display: inline-block;
-    }
+  }
+
+  .caret {
+    position: absolute;
   }
 }

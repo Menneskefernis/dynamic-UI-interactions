@@ -142,10 +142,6 @@ table {
   }
 }
 
-
-
-
-
 nav {
   position: relative;
   margin-top: 40px;
@@ -169,14 +165,14 @@ nav {
     }
     
     li {
-        display: inline-block;
-        font-size: 50px;
-        margin: 10px;
-        cursor: pointer;
+      display: inline-block;
+      font-size: 50px;
+      margin: 10px;
+      cursor: pointer;
 
-        :last-child {
-          padding-right: 20px;
-        }
+      :last-child {
+        padding-right: 20px;
+      }
     }
   }
 
@@ -201,5 +197,4 @@ nav {
       right: 0;
     }
   }
-
 }

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <link rel="stylesheet" href="./styles/imageSlider.css">
+  <script src="https://kit.fontawesome.com/27eb72c98e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <a href="index.html">Back to main</a>
+  
+  <section id="slider">
+    <div id="image-container">
+      <div class="image">
+        <img src="./images/bucatini-allamatriciana-30639-1.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="./images/eggplant-rotolo-ragu-15155-1.jpg" alt="">
+      </div>
+      <div class="image">
+        <img src="./images/greek-style-nachos-14170-1.jpg" alt="">
+      </div>
+    </div>
+    <div id="forward" class="caret" data-direction="1">
+      <i class="fas fa-angle-right"></i>
+    </div>
+    <div id="back" class="caret" data-direction="-1">
+      <i class="fas fa-angle-left"></i>
+    </div>
+  </section>
+
+  <script src="./js/imageSlider.js"></script>
+</body>
+</html>
