@@ -153,19 +153,19 @@ table {
       right: 0;
       
       &.slide-out-forwards {
-        animation: slideout-forwards 1s ease-in;
+        animation: slideout-forwards 1s;
       }
   
       &.slide-in-forwards {
-        animation: slidein-forwards 1s ease-in;
+        animation: slidein-forwards 1s;
       }
       
       &.slide-out-backwards {
-        animation: slideout-backwards 1s ease-in;
+        animation: slideout-backwards 1s;
       }
   
       &.slide-in-backwards {
-        animation: slidein-backwards 1s ease-in;
+        animation: slidein-backwards 1s;
       }
 
       img {
@@ -212,9 +212,11 @@ table {
     border-radius: 50%;
     margin: 0 3px;
     cursor: pointer;
+    transition: all 1s;
 
     &:hover {
       background: rgb(249, 249, 249);
+      transition: none;
     }
 
     &.selected {

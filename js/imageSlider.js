@@ -18,11 +18,9 @@ const changeSlide = (e) => {
   animationEnd = false;
   let direction;
 
-  if (e) {
-    direction = Number(e.target.closest('div').dataset.direction);
-    imageIndex += direction;
-  }
+  e ? direction = Number(e.target.closest('div').dataset.direction) : direction = 1;
 
+  imageIndex += direction;
   
   if (imageIndex > images.length - 1) imageIndex = 0;
   if (imageIndex < 0) imageIndex = images.length - 1;
@@ -83,9 +81,14 @@ const selectNavDot = (index) => {
   dotArr[index].classList.add('selected');
 };
 
+const autoSlide = () => {
+  setInterval(changeSlide, 3000);
+};
+
 setSlide(imageIndex);
 renderNavDots();
 selectNavDot(imageIndex);
+autoSlide();
 
 nextBtn.addEventListener('click', changeSlide);
 previousBtn.addEventListener('click', changeSlide);
