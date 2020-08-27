@@ -1,29 +1,37 @@
 const images = document.querySelectorAll('.image');
+const navDots = document.getElementById('nav-dots');
 const nextBtn = document.getElementById('next');
 const previousBtn = document.getElementById('previous');
 
-let index = 0;
+let imageIndex = 0;
 let animationEnd = true;
-let current = images[index];
+let current = images[imageIndex];
 let last = current;
 
-images[index].style.display = 'block';
+const setSlide = () => {
+  last.style.display = 'none';
+  current.style.display = 'block';
+};
 
-const showSlides = (e) => {
+const changeSlide = (e) => {
   if (!animationEnd) return;
   animationEnd = false;
+  let direction;
 
-  const direction = Number(e.target.closest('div').dataset.direction);
-  index += direction;
+  if (e) {
+    direction = Number(e.target.closest('div').dataset.direction);
+    imageIndex += direction;
+  }
 
-  if (index > images.length - 1) index = 0;
-  if (index < 0) index = images.length - 1;
+  
+  if (imageIndex > images.length - 1) imageIndex = 0;
+  if (imageIndex < 0) imageIndex = images.length - 1;
 
   last = current;
-  current = images[index];
+  current = images[imageIndex];
 
   current.style.display = 'block';
-
+  selectNavDot(imageIndex);
   addClasses(current, last, direction);
 
   current.addEventListener('animationend', () => {
@@ -48,6 +56,38 @@ const removeClasses = (current, last) => {
   current.classList.remove('slide-in-forwards', 'slide-in-backwards');
 };
 
-nextBtn.addEventListener('click', showSlides);
-previousBtn.addEventListener('click', showSlides);
+const handleDotNavigation = (e) => {
+  if (!animationEnd) return;
+  const index = Number(e.target.dataset.index);
+  imageIndex = index;
+  last = current;
+  current = images[index];
+  selectNavDot(imageIndex);
+  setSlide();
+};
+
+const renderNavDots = () => {
+  images.forEach((image, index) => {
+    const dot = document.createElement('div');
+    dot.classList.add('nav-dot');
+    dot.setAttribute('data-index', index);
+    navDots.appendChild(dot);
+  });
+  navDots.style.left = `calc(50% - ${navDots.getBoundingClientRect().width / 2}px)`;
+};
+
+const selectNavDot = (index) => {
+  const dotArr = Array.from(navDots.children);
+
+  dotArr.forEach((dot) => dot.classList.remove('selected'));
+  dotArr[index].classList.add('selected');
+};
+
+setSlide(imageIndex);
+renderNavDots();
+selectNavDot(imageIndex);
+
+nextBtn.addEventListener('click', changeSlide);
+previousBtn.addEventListener('click', changeSlide);
+Array.from(navDots.children).forEach((dot) => dot.addEventListener('click', handleDotNavigation));
 
