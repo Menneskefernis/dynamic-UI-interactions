@@ -1,24 +1,53 @@
 const images = document.querySelectorAll('.image');
-const forwardBtn = document.getElementById('forward');
-const backBtn = document.getElementById('back');
+const nextBtn = document.getElementById('next');
+const previousBtn = document.getElementById('previous');
 
 let index = 0;
+let animationEnd = true;
+let current = images[index];
+let last = current;
 
 images[index].style.display = 'block';
 
 const showSlides = (e) => {
-  const direction = Number(e.target.parentNode.dataset.direction);
+  if (!animationEnd) return;
+  animationEnd = false;
+
+  const direction = Number(e.target.closest('div').dataset.direction);
   index += direction;
 
   if (index > images.length - 1) index = 0;
   if (index < 0) index = images.length - 1;
 
-  images.forEach((image) => {
-    image.style.display = 'none';
-  });
+  last = current;
+  current = images[index];
 
-  images[index].style.display = 'block';
+  current.style.display = 'block';
+
+  addClasses(current, last, direction);
+
+  current.addEventListener('animationend', () => {
+    last.style.display = 'none';
+    removeClasses(current, last);
+    animationEnd = true;
+  });
 };
 
-forwardBtn.addEventListener('click', showSlides);
-backBtn.addEventListener('click', showSlides);
+const addClasses = (current, last, direction) => {
+  if (direction > 0) {
+    last.classList.add('slide-out-forwards');
+    current.classList.add('slide-in-forwards');
+  } else {
+    last.classList.add('slide-out-backwards');
+    current.classList.add('slide-in-backwards');
+  }
+};
+
+const removeClasses = (current, last) => {
+  last.classList.remove('slide-out-forwards', 'slide-out-backwards');
+  current.classList.remove('slide-in-forwards', 'slide-in-backwards');
+};
+
+nextBtn.addEventListener('click', showSlides);
+previousBtn.addEventListener('click', showSlides);
+

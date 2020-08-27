@@ -129,17 +129,45 @@ table {
   box-sizing: border-box;
 }
 
+
 #slider {
   position: relative;
-  margin-top: 100px;
+  margin: 100px auto;
   text-align: center;
+  max-width: 759px;
+  height: 506px;
+  overflow: hidden;
+
+  &:hover .caret {
+    display: block;
+  }
 
   #image-container {
-    max-width: 700px;
-    margin: 0 auto;
+    position: relative;
     .image {
       display: none;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
       
+      &.slide-out-forwards {
+        animation: slideout-forwards 1s;
+      }
+  
+      &.slide-in-forwards {
+        animation: slidein-forwards 1s;
+      }
+      
+      &.slide-out-backwards {
+        animation: slideout-backwards 1s;
+      }
+  
+      &.slide-in-backwards {
+        animation: slidein-backwards 1s;
+      }
+
       img {
         max-width: 100%;
       }
@@ -147,6 +175,68 @@ table {
   }
 
   .caret {
+    display: none;
     position: absolute;
+    top: calc(50% - 30px);
+    font-size: 30px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    color: rgb(10, 10, 10);
+    cursor: pointer;
+
+    &:hover {
+      color: rgb(249, 249, 249);
+    }
+
+    &#next {
+      right: 0;
+      border-radius: 50px 0 0 50px;
+      padding-right: 7px;
+    }
+    &#previous {
+      left: 0;
+      border-radius: 0 50px 50px 0;
+      padding-left: 7px;
+    } 
+  }
+}
+
+@keyframes slidein-forwards {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout-forwards {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slidein-backwards {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideout-backwards {
+  from {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(100%);
   }
 }
