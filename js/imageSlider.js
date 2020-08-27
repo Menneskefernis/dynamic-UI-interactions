@@ -14,23 +14,19 @@ const setSlide = () => {
 };
 
 const changeSlide = (e) => {
+  if (e) clearInterval(interval);
   if (!animationEnd) return;
   animationEnd = false;
+  
   let direction;
-
   e ? direction = Number(e.target.closest('div').dataset.direction) : direction = 1;
-
   imageIndex += direction;
   
-  if (imageIndex > images.length - 1) imageIndex = 0;
-  if (imageIndex < 0) imageIndex = images.length - 1;
-
-  last = current;
-  current = images[imageIndex];
-
+  handleEndToEndSkipping();
+  setImages();
   current.style.display = 'block';
   selectNavDot(imageIndex);
-  addClasses(current, last, direction);
+  triggerAnimation(current, last, direction);
 
   current.addEventListener('animationend', () => {
     last.style.display = 'none';
@@ -39,7 +35,17 @@ const changeSlide = (e) => {
   });
 };
 
-const addClasses = (current, last, direction) => {
+const setImages = () => {
+  last = current;
+  current = images[imageIndex];
+};
+
+const handleEndToEndSkipping = () => {
+  if (imageIndex > images.length - 1) imageIndex = 0;
+  if (imageIndex < 0) imageIndex = images.length - 1;
+};
+
+const triggerAnimation = (current, last, direction) => {
   if (direction > 0) {
     last.classList.add('slide-out-forwards');
     current.classList.add('slide-in-forwards');
@@ -62,6 +68,7 @@ const handleDotNavigation = (e) => {
   current = images[index];
   selectNavDot(imageIndex);
   setSlide();
+  clearInterval(interval);
 };
 
 const renderNavDots = () => {
@@ -81,14 +88,12 @@ const selectNavDot = (index) => {
   dotArr[index].classList.add('selected');
 };
 
-const autoSlide = () => {
-  setInterval(changeSlide, 3000);
-};
+
+const interval = setInterval(changeSlide, 5000);
 
 setSlide(imageIndex);
 renderNavDots();
 selectNavDot(imageIndex);
-autoSlide();
 
 nextBtn.addEventListener('click', changeSlide);
 previousBtn.addEventListener('click', changeSlide);
